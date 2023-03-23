@@ -1,1 +1,1 @@
-# Mini-Projet-Hangman-Game
+# Mini-Project-Hangman-Game

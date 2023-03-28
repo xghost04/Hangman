@@ -137,3 +137,5 @@ int main() {
     return 0;
 }
 
+//Remarque:
+//apres l'execution, se dernier genere le premier mot qui est 'apple' chaque foix.

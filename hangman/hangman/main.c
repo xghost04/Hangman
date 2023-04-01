@@ -9,11 +9,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
 
 #define MAX_ERRORS 6 // nombre maximum d'erreurs avant de perdre
 #define MAX_WORD_LEN 50 // longueur maximale du mot à deviner
 
 int main() {
+    
     char word[MAX_WORD_LEN + 1]; // mot à deviner
     char guessed[MAX_WORD_LEN + 1]; // lettres devinées
     int errors = 0 ; // nombre d'erreurs faites jusqu'à présent
@@ -22,15 +24,20 @@ int main() {
     int found; // indique si la lettre devinée est dans le mot
     char input[2]; // entrée utilisateur (une lettre suivie d'un caractère nul)
     
-    // Array of strings
+    // Tableau de chaînes
     char* words[] = {"apple", "banana", "cherry", "orange", "pineapple"};
 
-    // Generate a random index for the words array
-    int num_words;
-    int index = rand() % num_words;
+    // Générer un index aléatoire pour le tableau de mots
+    int num_words=5;
+    
+    int index;
 
-    // Retrieve the random word from the array
-    char* random_word = words[index];
+    // Récupérer le mot aléatoire du tableau
+    char* random_word ;
+    
+    srand(time(NULL));
+    index = rand() % num_words;
+    random_word = words[index];
     
     printf("************************************** \n");
     printf("****                              **** \n");
@@ -73,7 +80,7 @@ int main() {
         }
 
         
-        // dessine la pendaison
+        // dessine la pendaison à 6 cas
         switch (errors) {
             case 1:
                 printf("  _______\n");
@@ -87,7 +94,7 @@ int main() {
             case 2:
                 printf("  _______\n");
                 printf(" |/      |\n");
-                printf(" |      (_)\n");
+                printf(" |       O\n");
                 printf(" |\n");
                 printf(" |\n");
                 printf(" |\n");
@@ -96,7 +103,7 @@ int main() {
             case 3:
                 printf("  _______\n");
                 printf(" |/      |\n");
-                printf(" |      (_)\n");
+                printf(" |       O\n");
                 printf(" |       |\n");
                 printf(" |\n");
                 printf(" |\n");
@@ -105,7 +112,7 @@ int main() {
             case 4:
                 printf("  _______\n");
                 printf(" |/      |\n");
-                printf(" |      (_)\n");
+                printf(" |       O\n");
                 printf(" |      /|\ \n");
                 printf(" |\n");
                 printf(" |\n");
@@ -114,7 +121,7 @@ int main() {
             case 5:
                 printf("  _______\n");
                 printf(" |/      |\n");
-                printf(" |      (_)\n");
+                printf(" |       O\n");
                 printf(" |      /|\\ \n");
                 printf(" |       | \n");
                 printf(" |\n");
@@ -123,14 +130,16 @@ int main() {
             case 6:
                 printf("  _______\n");
                 printf(" |/      |\n");
-                printf(" |      (_)\n");
+                printf(" |       O\n");
                 printf(" |      /|\\ \n");
                 printf(" |       | \n");
                 printf(" |      / \\ \n");
                 printf("_|___\n");
+                printf("  \n");
+                printf(" ☹︎ YOU LOSE ☹︎\n");
                 break;
             default:
-                printf("YOU WIN\n");
+                printf(" ☺︎ YOU WIN ☺︎\n");
         }
 
     }

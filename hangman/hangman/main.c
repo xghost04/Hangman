@@ -82,6 +82,7 @@ int main() {
         
         // dessine la pendaison à 6 cas
         switch (errors) {
+                
             case 1:
                 printf("  _______\n");
                 printf(" |/      |\n");
